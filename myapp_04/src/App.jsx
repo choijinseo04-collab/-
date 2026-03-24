@@ -19,7 +19,7 @@ function Product({ name, price }) {
   );
 }
 
-function Id( { name, age, job }) {
+function Id({ name, age, job }) {
   return (
     <div>
       <p>이름 : {name}</p>
@@ -33,7 +33,26 @@ function Button({ text }) {
   return <button>{text}</button>;
 }
 
+function Box({ children }) {
+  return (
+    <div>
+      {children}
+    </div>
+  );
+}
+
+function FruitList({ fruits }) {
+  return (
+    <ul>
+      {fruits.map((fruit, index) => (
+        <li key={index}>{fruit}</li>
+      ))}
+    </ul>
+  );
+}
+
 function App() {
+  const fruits = ['사과', '포도', '바나나'];
   return (
     <div>
       <h1>4주차 실습</h1>
@@ -49,11 +68,16 @@ function App() {
       <Product name="노트북" price="100만원" />
       <Product name="마우스" price="3만원" />
 
-      <Work num="4"/>
-      <Id name="최진서" age="23" job="학생"/>
-      
+      <Work num="4" />
+      <Id name="최진서" age="23" job="학생" />
+
       <Work num="5" />
       <Button text="로그인" />
+      <Button text="회원가입" />
+      <Button text="삭제" />
+
+      <h2>실습</h2>
+      <FruitList fruits={fruits} />
     </div>
   );
 }
